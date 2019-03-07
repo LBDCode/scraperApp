@@ -1,0 +1,48 @@
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="comment-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="commentText">Note:</label>
+            <textarea class="form-control" id="commentText" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" id="delete-comment-text">Delete comment</button>
+        <button type="button" class="btn btn-dark" id="save-comment-text">Save comment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container article-content">
+    {{#each articles}}
+        <div class="media post">
+            <div class="media-body">
+              <p class="title">
+                <a class="title-link" href={{this.link}}>{{this.title}}</a>
+                <span>({{this.origin}})</span>
+              </p>
+                <p>{{this.tagline}}</p>
+                {{#if this.note.body}}   
+                  <p>Note: </p>            
+                  <p>{{this.note.body}}</p>
+                {{/if}}
+                {{#if this.saved}}
+                    <button data-id={{this._id}} data-save="false" class="btn btn-light save">Discard</button> <button data-id={{this._id}} data-title="{{this.title}}" class="btn btn-dark comment" data-toggle="modal" data-target="#commentModal">Add/Edit Note</button>
+                {{else}}  
+                    <button data-id={{this._id}} data-save="true" class="btn btn-dark save">Save</button> <button data-id={{this._id}} data-title="{{this.title}}" class="btn btn-dark comment" data-toggle="modal" data-target="#commentModal">Add/Edit Note</button>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+
+    
+</div>
