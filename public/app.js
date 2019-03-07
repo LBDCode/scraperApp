@@ -23,7 +23,7 @@ $(document).on("click", ".comment", function(event) {
 
 function scrapeArticles() {
     $.get("/api/scrape").then(function(data) {
-        location.reload();
+        location.reload(true);
     });
 };
 
@@ -37,7 +37,7 @@ function savePost(elem) {
     type: 'PUT',
     data: {"saved": saveState},
     success: function(data) {
-      location.reload();
+      location.reload(true);
     }
   });
 
@@ -65,7 +65,6 @@ function saveComment(elem) {
     data: note,
     success: function(data) {
       $("#commentText").val("");
-      location.reload(true);
     }
   });
   location.reload(true);
@@ -88,6 +87,6 @@ function deleteComment(elem) {
       $("#commentText").val("");
     }
   });
-  location.reload();
+  location.reload(true);
 }
 
