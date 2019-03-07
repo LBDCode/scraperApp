@@ -65,10 +65,10 @@ function saveComment(elem) {
     data: note,
     success: function(data) {
       $("#commentText").val("");
-      location.reload();
+      location.reload(true);
     }
   });
-  location.reload();
+  location.reload(true);
 }
 
 
