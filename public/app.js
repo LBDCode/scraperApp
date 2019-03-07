@@ -12,7 +12,7 @@ $("#delete-comment-text").on("click", function(event) {
 
 $(document).on("click", ".save", function(event) {
   event.preventDefault();
-  savePost($(this));
+  savePost($(this).data("id"), $(this).attr("data-save"));
 });
 
 $(document).on("click", ".comment", function(event) {
@@ -28,14 +28,12 @@ function scrapeArticles() {
 };
 
 
-function savePost(elem) {
-  var postID = elem.data("id");
-  var saveState = elem.attr("data-save");
+function savePost(id, state) {
 
   $.ajax({
-    url: 'api/articles/' + postID,
+    url: 'api/articles/' + id,
     type: 'PUT',
-    data: {"saved": saveState},
+    data: {"saved": state},
     success: function(data) {
       location.reload(true);
     }
@@ -67,7 +65,9 @@ function saveComment(elem) {
       $("#commentText").val("");
     }
   });
+  savePost(postID, true);
   location.reload(true);
+
 }
 
 
