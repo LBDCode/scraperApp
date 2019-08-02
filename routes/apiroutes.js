@@ -7,7 +7,7 @@ var ObjectID = require('mongoose').Types.ObjectId;
 
 module.exports = function(app) {
  // Route for getting all posts
-app.get("/api/articles", function(req, res) {
+  app.get("/api/articles", function(req, res) {
     db.Article.find({})
     .populate("note")
     .then(function(dbArticles) {
@@ -17,7 +17,6 @@ app.get("/api/articles", function(req, res) {
       res.json(err);
     })
   });
-
 
   //scrape route
   app.get("/api/scrape", function(req, res) {

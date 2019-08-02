@@ -7,7 +7,7 @@ var db = require("./models");
 // var ObjectID = require('mongoose').Types.ObjectId;
 
 
-var PORT = process.env.PORT || 3000;
+var PORT = 80;
 var app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI =  "mongodb://mongo:27017/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 

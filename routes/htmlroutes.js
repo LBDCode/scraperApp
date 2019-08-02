@@ -15,4 +15,16 @@ module.exports = function(app) {
     })
   });
 
+  app.get("/saved", function(req, res) {
+    db.Article.find({ "saved": true })
+    .populate("note")
+    .then(function(dbSaved) {
+      res.render("index", 
+      {articles: dbSaved});
+    })
+    .catch(function(err) {
+      res.json(err);
+    })
+  });
+
 };

@@ -1,4 +1,6 @@
 $(".scrape").on("click", scrapeArticles);
+$(".saved").on("click", savedArticles);
+
 
 $("#save-comment-text").on("click", function(event) {
   event.preventDefault();
@@ -20,16 +22,17 @@ $(document).on("click", ".comment", function(event) {
   commentPost($(this));
 });
 
-
 function scrapeArticles() {
-    $.get("/api/scrape").then(function(data) {
-        location.reload(true);
-    });
+  $.get("/api/scrape").then(function(data) {
+      window.location.href = "/";
+  });
 };
 
+function savedArticles() {
+  window.location.href = "/saved";
+};
 
 function savePost(id, state) {
-
   $.ajax({
     url: 'api/articles/' + id,
     type: 'PUT',
