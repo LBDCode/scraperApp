@@ -2,6 +2,9 @@
 
 The r/compsci scraper uses cheerio to pull content from reddit, and allows the user to save and comment on posts they are interested in.
 
+![bibliofile](https://libby.tech/images/learncs.png)
+
+
 ### Link to Website
 http://13.58.208.154
 
