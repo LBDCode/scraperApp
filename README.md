@@ -6,7 +6,7 @@ The r/compsci scraper uses cheerio to pull content from reddit, and allows the u
 
 
 ### Link to Website
-http://13.58.208.154
+http://cs-scraper.tk
 
 ### Technologies Used
 Node, Express, MongoDB, Mongoose, Cheerio, Handlebars, jQuery
